@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fizikl tesk task</title>
+    <!-- required CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="intro">
+            <img src="{% static 'images/membs.png' %}" alt="armschool" class="armschool">
+        </div>
+        <div class="content">
+            <h2>Перед Вами самый настоящий определитель номера недели по введеной дате! Не верите? Попробуйте сами!</h2>
+            <div class="form">
+                <input type="text" name="" id="date">
+                <input type="button" id="define" value="Узнать номер недели">
+            </div>
+            <!-- Empty section tag because data will appear from js -->
+            <section> </section>
+        </div>
+
+    </div>
+    <!-- required JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/ru.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
