@@ -6,11 +6,20 @@ let section = document.querySelector('section')
 // initializing flatpickr to make scheduler for comfortable usage
 flatpickr("#date", {
     dateFormat: 'd / m / Y',
-    minDate: '1 / 01 / 2018',
+    minDate: '1 / 01 / 2019',
     "locale": "ru",
-    allowInput: true // defining this key to allow user to input date
+    allowInput: true, // defining this key to allow user to input date
+    onChange: function(){
+        var date = document.querySelector('#date').value.split('/').reverse()
+        if (new Date(date) < new Date('2019, 01, 01')){
+            this.set('minDate', new Date('2019, 01, 01'))
+        }
+    }
 });
 define.addEventListener('click', () => {
+    if (date.value == ''){
+        return false
+    }
     $.ajax({
         url: '/ajax/',
         type: 'GET',
@@ -25,9 +34,6 @@ define.addEventListener('click', () => {
             </span>`
         },
         error: (error) => {
-            // Cleaning console for beauty of console
-            console.clear()
-
             // insertion invalid data
             section.innerHTML = `<span class="info_error">
                 <span style="display: flex; align-items:center; gap:5px; color:white;"> Выбранная дата: <p class="user_date">${date.value}</p> </span>
