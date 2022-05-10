@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import index, DateView
+from .views import Index, DateView
 
 urlpatterns = [
-    path('', index, name='index'),
+    path('', Index.as_view(), name='index'),
     path('ajax/', DateView.as_view(), name='definedate')
 ]
